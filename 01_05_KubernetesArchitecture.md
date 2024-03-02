@@ -22,7 +22,7 @@ When Kubernetes is installed, it includes several key components distributed acr
 
 4. **Controllers and Schedulers**: Controllers are responsible for making decisions to maintain the desired state of the cluster. They respond to changes in nodes, containers, or endpoints by initiating actions such as bringing up new containers. Schedulers distribute work or containers across multiple nodes by assigning them to appropriate nodes.
    
-5. **etcd**: etcd is a distributed key-value store that serves as the cluster's persistent storage. It stores configuration data, state information, and metadata about the cluster's objects. The Kubernetes master components read from and write to etcd to maintain the cluster's state.
+5. **etcd**: etcd is a distributed key-value store that serves as the cluster's persistent storage. It stores desired state of the cluster configuration, configuration data, state information, and metadata about the cluster's objects. The Kubernetes master components read from and write to etcd to maintain the cluster's state.
 
 **Distribution of Components:**
 
