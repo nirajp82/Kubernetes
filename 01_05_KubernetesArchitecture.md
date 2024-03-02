@@ -2,27 +2,27 @@
 
 **Nodes in Kubernetes:**
 
-A node in Kubernetes is a machine, whether physical or virtual, where the Kubernetes system is installed. Nodes are also known as worker machines, as they execute the actual workloads of running containers managed by Kubernetes. Previously, nodes were referred to as minions. The terms "node" and "minion" are often used interchangeably.
+**Node**: In Kubernetes, a node is a physical or virtual machine where the Kubernetes system is installed and runs your applications. Each node typically hosts multiple containers that together form your application stack. Nodes are the basic units of the Kubernetes cluster where your applications are deployed and run.
 
-However, relying on a single node poses a risk—if the node fails, the applications running on it go down as well. To ensure high availability and fault tolerance, Kubernetes organizes nodes into clusters. 
+**Cluster**: A Kubernetes cluster is a collection of nodes that work together as a single entity. It consists of one or more master nodes and multiple worker nodes.
 
-**Cluster:** A cluster is a set of nodes grouped together, allowing applications to remain accessible even if one node fails. Additionally, having multiple nodes facilitates load sharing across the cluster.
+**Master Node**: The master node is the control plane of the Kubernetes cluster. It manages the cluster's overall state, scheduling, and orchestration of application workloads. The master node includes several components such as the Kubernetes API server, scheduler, controller manager, and etcd (a distributed key-value store for storing cluster data).
 
-**Master Node:**
-
-The master node is another node in the Kubernetes cluster that hosts the control plane components responsible for managing and orchestrating the cluster's resources. It oversees the nodes in the cluster and orchestrates container deployments on worker nodes.
+**Worker Node**: Also known as a minion node, the worker node is where your application containers are deployed and executed. Each worker node runs a container runtime (such as Docker or containerd) and a Kubernetes agent called kubelet, which communicates with the master node.
 
 **Components of Kubernetes:**
 
 When Kubernetes is installed, it includes several key components distributed across the master and worker nodes:
 
-1. **API Server and etcd**: The API server serves as the front end for Kubernetes, handling communication with users, management devices, and command-line interfaces. Etcd is a distributed key-value store used by Kubernetes to store all data related to managing the cluster.
+1. **API Server and etcd**: The API server serves as the front end for Kubernetes  that exposes the Kubernetes API. It handles requests from various Kubernetes components, users, and external clients. The API server validates and processes requests, then updates the corresponding objects in the cluster's etcd database.
 
 2. **Kubelet**: Kubelet is an agent that runs on each node in the cluster. It ensures that containers are running as expected on the nodes and communicates with the master node.
 
 3. **Container Runtime**: The container runtime is the underlying software responsible for running containers. Docker is a commonly used container runtime in Kubernetes, although alternatives like Rocket or Cryo exist.
 
 4. **Controllers and Schedulers**: Controllers are responsible for making decisions to maintain the desired state of the cluster. They respond to changes in nodes, containers, or endpoints by initiating actions such as bringing up new containers. Schedulers distribute work or containers across multiple nodes by assigning them to appropriate nodes.
+   
+5. **etcd**: etcd is a distributed key-value store that serves as the cluster's persistent storage. It stores configuration data, state information, and metadata about the cluster's objects. The Kubernetes master components read from and write to etcd to maintain the cluster's state.
 
 **Distribution of Components:**
 
