@@ -1,5 +1,4 @@
-## Kubernetes: Overview.
-
+## Kubernetes: Architecture.
 
 **Nodes: The Foundation for Workloads**
 
