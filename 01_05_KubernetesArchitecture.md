@@ -16,13 +16,37 @@ When Kubernetes is installed, it includes several key components distributed acr
 
 1. **API Server and etcd**: The API server serves as the front end for Kubernetes  that exposes the Kubernetes API. It handles requests from various Kubernetes components, users, and external clients. The API server validates and processes requests, then updates the corresponding objects in the cluster's etcd database.
 
-2. **Kubelet**: Kubelet is an agent that runs on each node in the cluster. It ensures that containers are running as expected on the nodes and communicates with the master node.
+2. **Kubelet**: Kubelet is an agent that runs on each node in the cluster. It ensures that containers are running as expected on the nodes and communicates with the master node. It receives pod specifications from the API server, ensures that the containers described in the pod specifications are running and healthy, and reports the node's status back to the master.
 
 3. **Container Runtime**: The container runtime is the underlying software responsible for running containers. Docker is a commonly used container runtime in Kubernetes, although alternatives like Rocket or Cryo exist.
-
-4. **Controllers and Schedulers**: Controllers are responsible for making decisions to maintain the desired state of the cluster. They respond to changes in nodes, containers, or endpoints by initiating actions such as bringing up new containers. Schedulers distribute work or containers across multiple nodes by assigning them to appropriate nodes.
    
-5. **etcd**: etcd is a distributed key-value store that serves as the cluster's persistent storage. It stores desired state of the cluster configuration, configuration data, state information, and metadata about the cluster's objects. The Kubernetes master components read from and write to etcd to maintain the cluster's state.
+4. **Controller Manager**: The controller manager runs various controllers that regulate the state of the cluster. Controllers continuously monitor the cluster's desired state, compare it with the actual state, and take corrective actions to ensure that the desired state is maintained. Examples of controllers include the Replication Controller, ReplicaSet Controller, and Deployment Controller.
+
+5. **Controllers**: Controllers are responsible for making decisions to maintain the desired state of the cluster. They respond to changes in nodes, containers, or endpoints by initiating actions such as bringing up new containers.
+  
+6. **Schedulers**: distribute work or containers across multiple nodes by assigning them to appropriate nodes. The scheduler is responsible for assigning pods (a group of one or more containers) to nodes in the cluster based on resource requirements, node capacity, and other constraints. It ensures that workloads are spread evenly across the cluster.
+   
+7. **etcd**: etcd is a distributed key-value store that serves as the cluster's persistent storage. It stores desired state of the cluster configuration, configuration data, state information, and metadata about the cluster's objects. The Kubernetes master components read from and write to etcd to maintain the cluster's state.
+
+8. **Pods**: The fundamental unit of deployment in Kubernetes, representing a group of one or more containers that share storage and network resources.
+   
+9. **kube-proxy**: Manages network traffic for pods within the cluster, implementing service discovery and load balancing. 
+
+**Example:**
+
+1. You deploy a web application as a deployment object in Kubernetes. This information is sent to the kube-apiserver.
+
+2. The kube-apiserver stores the deployment details in etcd and informs the kube-controller-manager.
+
+3. The kube-controller-manager creates a corresponding replica set to manage the desired number of pods for the application.
+
+4. The kube-scheduler identifies suitable nodes based on resource availability and pod requirements.
+
+5. The kube-scheduler instructs the kubelet on each node to create and run the pod, which in turn utilizes the container runtime to launch the application containers.
+
+6. The kube-proxy automatically configures networking for the pods, enabling communication and access to the application.
+
+This simplified example demonstrates how different components collaborate to manage and run containerized applications within a Kubernetes cluster.
 
 **Distribution of Components:**
 
