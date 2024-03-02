@@ -4,7 +4,9 @@
 
 A node in Kubernetes is a machine, whether physical or virtual, where the Kubernetes system is installed. Nodes are also known as worker machines, as they execute the actual workloads of running containers managed by Kubernetes. Previously, nodes were referred to as minions. The terms "node" and "minion" are often used interchangeably.
 
-However, relying on a single node poses a risk—if the node fails, the applications running on it go down as well. To ensure high availability and fault tolerance, Kubernetes organizes nodes into clusters. A cluster is a set of nodes grouped together, allowing applications to remain accessible even if one node fails. Additionally, having multiple nodes facilitates load sharing across the cluster.
+However, relying on a single node poses a risk—if the node fails, the applications running on it go down as well. To ensure high availability and fault tolerance, Kubernetes organizes nodes into clusters. 
+
+**Cluster:** A cluster is a set of nodes grouped together, allowing applications to remain accessible even if one node fails. Additionally, having multiple nodes facilitates load sharing across the cluster.
 
 **Master Node:**
 
