@@ -16,6 +16,8 @@ Here's a breakdown of some key concepts:
 * **Load balancing:** Kubernetes distributes incoming traffic across multiple containers running the same application, ensuring efficient resource utilization and preventing any single container from becoming overloaded.
 * **Service Discovery and Load Balancing**: Kubernetes provides built-in mechanisms for service discovery and load balancing, allowing applications to communicate with each other and distribute traffic across multiple instances.
 * **Rolling Updates and Rollbacks**: Kubernetes supports rolling updates and rollbacks of application deployments, allowing organizations to deploy new versions of their applications without downtime and easily revert to previous versions if needed.
+* **Resource Allocation and Management**: Kubernetes manages the allocation of computing resources (CPU, memory, storage) to containers based on predefined resource requests and limits. It ensures fair and efficient resource utilization across the cluster, preventing resource contention and ensuring optimal performance for all applications.
+
 
 **Benefits of using Kubernetes:**
 
