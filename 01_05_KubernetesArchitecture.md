@@ -32,22 +32,6 @@ When Kubernetes is installed, it includes several key components distributed acr
    
 9. **kube-proxy**: Manages network traffic for pods within the cluster, implementing service discovery and load balancing. 
 
-**Example:**
-
-1. You deploy a web application as a deployment object in Kubernetes. This information is sent to the kube-apiserver.
-
-2. The kube-apiserver stores the deployment details in etcd and informs the kube-controller-manager.
-
-3. The kube-controller-manager creates a corresponding replica set to manage the desired number of pods for the application.
-
-4. The kube-scheduler identifies suitable nodes based on resource availability and pod requirements.
-
-5. The kube-scheduler instructs the kubelet on each node to create and run the pod, which in turn utilizes the container runtime to launch the application containers.
-
-6. The kube-proxy automatically configures networking for the pods, enabling communication and access to the application.
-
-This simplified example demonstrates how different components collaborate to manage and run containerized applications within a Kubernetes cluster.
-
 **Distribution of Components:**
 
 The master node hosts components such as the API server, etcd service, control manager, and scheduler. These components work together to manage the cluster and orchestrate container deployments.
@@ -63,3 +47,20 @@ The `kubectl` command line tool is used to interact with and manage Kubernetes c
 - `kubectl get nodes`: List all nodes in the cluster.
 
 Understanding these components and commands is crucial for setting up and managing Kubernetes clusters effectively. As you delve deeper into Kubernetes, you'll encounter additional commands and concepts that further enhance your understanding and proficiency in managing containerized applications.
+
+
+**Example:**
+
+1. You deploy a web application as a deployment object in Kubernetes. This information is sent to the kube-apiserver.
+
+2. The kube-apiserver stores the deployment details in etcd and informs the kube-controller-manager.
+
+3. The kube-controller-manager creates a corresponding replica set to manage the desired number of pods for the application.
+
+4. The kube-scheduler identifies suitable nodes based on resource availability and pod requirements.
+
+5. The kube-scheduler instructs the kubelet on each node to create and run the pod, which in turn utilizes the container runtime to launch the application containers.
+
+6. The kube-proxy automatically configures networking for the pods, enabling communication and access to the application.
+
+This simplified example demonstrates how different components collaborate to manage and run containerized applications within a Kubernetes cluster.
