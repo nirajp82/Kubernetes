@@ -1,6 +1,5 @@
-## Kubernetes: A Detailed Look
+## Kubernetes: Overview.
 
-This document delves into the core components of Kubernetes, explaining their roles and responsibilities in managing containerized applications.
 
 **Nodes: The Foundation for Workloads**
 
